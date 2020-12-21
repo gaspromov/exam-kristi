@@ -1,0 +1,44 @@
+{
+  "catalog": [
+    {
+      "name": "name",
+      "weight": 200,
+      "count": 101,
+      "price": "99",
+      "category": "furniture",
+      "article": "smbd",
+      "manufacturer": "smbd",
+      "id": 1
+    },
+    {
+      "name": "name",
+      "weight": 200,
+      "count": 20,
+      "price": "11",
+      "category": "books",
+      "article": "smbd",
+      "manufacturer": "smbd",
+      "id": 3
+    },
+    {
+      "name": "name",
+      "weight": "200",
+      "count": 13,
+      "price": 100,
+      "category": "phones",
+      "article": "efefef",
+      "manufacturer": "smbd",
+      "id": 4
+    },
+    {
+      "name": "Privetik",
+      "weight": "222",
+      "count": "2",
+      "price": "2",
+      "category": "technics",
+      "article": "22",
+      "manufacturer": "22",
+      "id": 5
+    }
+  ]
+}

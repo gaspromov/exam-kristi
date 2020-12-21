@@ -1,0 +1,78 @@
+
+<div class="container mt-4">
+
+    <div class="form-inline">
+        <button class=" btn btn-success mr-4" routerLink="add">Add</button>
+        <select name="category" class="form-control mr-4" id="category" [(ngModel)]="categoryFilter">
+            <option value="" selected>Default</option>
+            <option value="books" >Books</option>
+            <option value="phones">Phones</option>
+            <option value="furniture">Furniture</option>
+            <option value="technics">Technics</option>
+        </select>
+
+        <input type="checkbox" name="inStock" id="stock" class="form-control mr-1" [(ngModel)]="onlyInStock"> <label for="stock" class="mr-4">Only in stock</label> 
+
+        <select name="sort" id="sort" class="form-control ml-4" [(ngModel)]="sortParam">
+            <option value="" selected>Default</option>
+            <option value="price1">By Price up</option>
+            <option value="price2">By Price down</option>
+            <option value="count1">By stock up</option>
+            <option value="count2">By Stock down</option>
+        </select>
+
+
+    </div>
+
+</div>
+
+<div class="container mt-4" *ngIf="products">
+
+    <div class="row mb-3">
+        <div class="col-2">
+            Name
+        </div>
+        <div class="col-2">
+            Weight
+        </div>
+        <div class="col-2">
+            Price
+        </div>
+        <div class="col-2">
+            Count
+        </div>
+        <div class="col-2">
+            Category
+        </div>
+    </div>
+
+    <div class="row mb-2" *ngFor="let product of products
+        | filter : categoryFilter : 'category'
+        | sort : sortParam
+        | inStock : onlyInStock
+    ">
+    
+        <div class="col-2">
+            {{ product.name }}
+        </div>
+        <div class="col-2">
+            {{ product.weight }}
+        </div>
+        <div class="col-2">
+            {{ product.price }}
+        </div>
+        <div class="col-2">
+            <span (click)="onChangeStock(false, product.id)" style="cursor: pointer;">-</span>
+            {{ product.count }}
+            <span (click)="onChangeStock(true, product.id)" style="cursor: pointer;">+</span>
+        </div>
+        <div class="col-2">
+            {{ product.category }}
+        </div>
+        <div class="col-2">
+            <button [routerLink]="[ 'edit', product.id ]" class="btn btn-outline-warning">Edit</button>
+        </div>
+    
+    </div>
+
+</div>
